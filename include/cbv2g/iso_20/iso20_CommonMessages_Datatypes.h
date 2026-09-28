@@ -2442,18 +2442,20 @@ struct iso20_exiDocument {
 struct iso20_exiFragment {
     union {
         struct iso20_AbsolutePriceScheduleType AbsolutePriceSchedule;
-        struct iso20_CertificateInstallationReqType CertificateInstallationReq;
-        struct iso20_MeteringConfirmationReqType MeteringConfirmationReq;
+        struct iso20_SignedCertificateChainType OEMProvisioningCertificateChain;
         struct iso20_PnC_AReqAuthorizationModeType PnC_AReqAuthorizationMode;
+        struct iso20_PriceLevelScheduleType PriceLevelSchedule;
         struct iso20_SignedInfoType SignedInfo;
         struct iso20_SignedInstallationDataType SignedInstallationData;
+        struct iso20_SignedMeteringDataType SignedMeteringData;
     };
     unsigned int AbsolutePriceSchedule_isUsed:1;
-    unsigned int CertificateInstallationReq_isUsed:1;
-    unsigned int MeteringConfirmationReq_isUsed:1;
+    unsigned int OEMProvisioningCertificateChain_isUsed:1;
     unsigned int PnC_AReqAuthorizationMode_isUsed:1;
+    unsigned int PriceLevelSchedule_isUsed:1;
     unsigned int SignedInfo_isUsed:1;
     unsigned int SignedInstallationData_isUsed:1;
+    unsigned int SignedMeteringData_isUsed:1;
 };
 
 // elements of xmldsig fragment

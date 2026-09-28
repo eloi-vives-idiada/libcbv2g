@@ -15755,15 +15755,7 @@ int encode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
         // Certificate (urn:iso:std:iso:15118:-20:CommonMessages)
         // event 26
         // CertificateInstallationReq (urn:iso:std:iso:15118:-20:CommonMessages)
-        else if (exiFrag->CertificateInstallationReq_isUsed == 1)
-        {
-            // encode event 27
-            error = exi_basetypes_encoder_nbit_uint(stream, 9, 27);
-            if (error == EXI_ERROR__NO_ERROR)
-            {
-                error = encode_iso20_CertificateInstallationReqType(stream, &exiFrag->CertificateInstallationReq);
-            }
-        }
+        // event 27
         // CertificateInstallationRes (urn:iso:std:iso:15118:-20:CommonMessages)
         // event 28
         // CertificateInstallationService (urn:iso:std:iso:15118:-20:CommonMessages)
@@ -15947,15 +15939,7 @@ int encode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
         // MeterTimestamp (urn:iso:std:iso:15118:-20:CommonTypes)
         // event 118
         // MeteringConfirmationReq (urn:iso:std:iso:15118:-20:CommonMessages)
-        else if (exiFrag->MeteringConfirmationReq_isUsed == 1)
-        {
-            // encode event 119
-            error = exi_basetypes_encoder_nbit_uint(stream, 9, 119);
-            if (error == EXI_ERROR__NO_ERROR)
-            {
-                error = encode_iso20_MeteringConfirmationReqType(stream, &exiFrag->MeteringConfirmationReq);
-            }
-        }
+        // event 119
         // MeteringConfirmationRes (urn:iso:std:iso:15118:-20:CommonMessages)
         // event 120
         // MgmtData (http://www.w3.org/2000/09/xmldsig#)
@@ -15973,7 +15957,15 @@ int encode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
         // NumberOfPriceLevels (urn:iso:std:iso:15118:-20:CommonMessages)
         // event 127
         // OEMProvisioningCertificateChain (urn:iso:std:iso:15118:-20:CommonMessages)
-        // event 128
+        else if (exiFrag->OEMProvisioningCertificateChain_isUsed == 1)
+        {
+            // encode event 128
+            error = exi_basetypes_encoder_nbit_uint(stream, 9, 128);
+            if (error == EXI_ERROR__NO_ERROR)
+            {
+                error = encode_iso20_SignedCertificateChainType(stream, &exiFrag->OEMProvisioningCertificateChain);
+            }
+        }
         // Object (http://www.w3.org/2000/09/xmldsig#)
         // event 129
         // OccupancyCosts (urn:iso:std:iso:15118:-20:CommonTypes)
@@ -16059,7 +16051,15 @@ int encode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
         // PriceLevel (urn:iso:std:iso:15118:-20:CommonMessages)
         // event 166
         // PriceLevelSchedule (urn:iso:std:iso:15118:-20:CommonMessages)
-        // event 167
+        else if (exiFrag->PriceLevelSchedule_isUsed == 1)
+        {
+            // encode event 167
+            error = exi_basetypes_encoder_nbit_uint(stream, 9, 167);
+            if (error == EXI_ERROR__NO_ERROR)
+            {
+                error = encode_iso20_PriceLevelScheduleType(stream, &exiFrag->PriceLevelSchedule);
+            }
+        }
         // PriceLevelScheduleEntries (urn:iso:std:iso:15118:-20:CommonMessages)
         // event 168
         // PriceLevelScheduleEntry (urn:iso:std:iso:15118:-20:CommonMessages)
@@ -16205,7 +16205,15 @@ int encode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
             }
         }
         // SignedMeteringData (urn:iso:std:iso:15118:-20:CommonMessages)
-        // event 232
+        else if (exiFrag->SignedMeteringData_isUsed == 1)
+        {
+            // encode event 232
+            error = exi_basetypes_encoder_nbit_uint(stream, 9, 232);
+            if (error == EXI_ERROR__NO_ERROR)
+            {
+                error = encode_iso20_SignedMeteringDataType(stream, &exiFrag->SignedMeteringData);
+            }
+        }
         // StartTime (urn:iso:std:iso:15118:-20:CommonMessages)
         // event 233
         // SubCertificates (urn:iso:std:iso:15118:-20:CommonMessages)

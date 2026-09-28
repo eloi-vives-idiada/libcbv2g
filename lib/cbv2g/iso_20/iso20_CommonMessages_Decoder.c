@@ -19773,8 +19773,6 @@ int decode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
                 break;
             case 27:
                 // CertificateInstallationReq (urn:iso:std:iso:15118:-20:CommonMessages)
-                error = decode_iso20_CertificateInstallationReqType(stream, &exiFrag->CertificateInstallationReq);
-                exiFrag->CertificateInstallationReq_isUsed = 1u;
                 break;
             case 28:
                 // CertificateInstallationRes (urn:iso:std:iso:15118:-20:CommonMessages)
@@ -20051,8 +20049,6 @@ int decode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
                 break;
             case 119:
                 // MeteringConfirmationReq (urn:iso:std:iso:15118:-20:CommonMessages)
-                error = decode_iso20_MeteringConfirmationReqType(stream, &exiFrag->MeteringConfirmationReq);
-                exiFrag->MeteringConfirmationReq_isUsed = 1u;
                 break;
             case 120:
                 // MeteringConfirmationRes (urn:iso:std:iso:15118:-20:CommonMessages)
@@ -20080,6 +20076,8 @@ int decode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
                 break;
             case 128:
                 // OEMProvisioningCertificateChain (urn:iso:std:iso:15118:-20:CommonMessages)
+                error = decode_iso20_SignedCertificateChainType(stream, &exiFrag->OEMProvisioningCertificateChain);
+                exiFrag->OEMProvisioningCertificateChain_isUsed = 1u;
                 break;
             case 129:
                 // Object (http://www.w3.org/2000/09/xmldsig#)
@@ -20199,6 +20197,8 @@ int decode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
                 break;
             case 167:
                 // PriceLevelSchedule (urn:iso:std:iso:15118:-20:CommonMessages)
+                error = decode_iso20_PriceLevelScheduleType(stream, &exiFrag->PriceLevelSchedule);
+                exiFrag->PriceLevelSchedule_isUsed = 1u;
                 break;
             case 168:
                 // PriceLevelScheduleEntries (urn:iso:std:iso:15118:-20:CommonMessages)
@@ -20398,6 +20398,8 @@ int decode_iso20_exiFragment(exi_bitstream_t* stream, struct iso20_exiFragment* 
                 break;
             case 232:
                 // SignedMeteringData (urn:iso:std:iso:15118:-20:CommonMessages)
+                error = decode_iso20_SignedMeteringDataType(stream, &exiFrag->SignedMeteringData);
+                exiFrag->SignedMeteringData_isUsed = 1u;
                 break;
             case 233:
                 // StartTime (urn:iso:std:iso:15118:-20:CommonMessages)
