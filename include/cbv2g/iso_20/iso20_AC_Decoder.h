@@ -33,10 +33,6 @@ extern "C" {
 
 // main function for decoding
 int decode_iso20_ac_exiDocument(exi_bitstream_t* stream, struct iso20_ac_exiDocument* exiDoc);
-// decoding function for fragment
-int decode_iso20_ac_exiFragment(exi_bitstream_t* stream, struct iso20_ac_exiFragment* exiFrag);
-// decoding function for xmldsig fragment
-int decode_iso20_ac_xmldsigFragment(exi_bitstream_t* stream, struct iso20_ac_xmldsigFragment* xmldsigFrag);
 
 #ifdef __cplusplus
 }

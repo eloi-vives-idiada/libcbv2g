@@ -32,7 +32,9 @@ void init_iso20_ac_exiDocument(struct iso20_ac_exiDocument* exiDoc) {
     exiDoc->AC_CPDResEnergyTransferMode_isUsed = 0u;
     exiDoc->BPT_AC_CPDReqEnergyTransferMode_isUsed = 0u;
     exiDoc->BPT_AC_CPDResEnergyTransferMode_isUsed = 0u;
+    exiDoc->CLReqControlMode_isUsed = 0u;
     exiDoc->Scheduled_AC_CLReqControlMode_isUsed = 0u;
+    exiDoc->CLResControlMode_isUsed = 0u;
     exiDoc->Scheduled_AC_CLResControlMode_isUsed = 0u;
     exiDoc->BPT_Scheduled_AC_CLReqControlMode_isUsed = 0u;
     exiDoc->BPT_Scheduled_AC_CLResControlMode_isUsed = 0u;
@@ -40,8 +42,6 @@ void init_iso20_ac_exiDocument(struct iso20_ac_exiDocument* exiDoc) {
     exiDoc->Dynamic_AC_CLResControlMode_isUsed = 0u;
     exiDoc->BPT_Dynamic_AC_CLReqControlMode_isUsed = 0u;
     exiDoc->BPT_Dynamic_AC_CLResControlMode_isUsed = 0u;
-    exiDoc->CLReqControlMode_isUsed = 0u;
-    exiDoc->CLResControlMode_isUsed = 0u;
     exiDoc->Signature_isUsed = 0u;
     exiDoc->SignatureValue_isUsed = 0u;
     exiDoc->SignedInfo_isUsed = 0u;
@@ -281,18 +281,6 @@ void init_iso20_ac_ReceiptType(struct iso20_ac_ReceiptType* ReceiptType) {
     ReceiptType->OverstayCosts_isUsed = 0u;
 }
 
-void init_iso20_ac_Scheduled_AC_CLResControlModeType(struct iso20_ac_Scheduled_AC_CLResControlModeType* Scheduled_AC_CLResControlModeType) {
-    Scheduled_AC_CLResControlModeType->EVSETargetActivePower_isUsed = 0u;
-    Scheduled_AC_CLResControlModeType->EVSETargetActivePower_L2_isUsed = 0u;
-    Scheduled_AC_CLResControlModeType->EVSETargetActivePower_L3_isUsed = 0u;
-    Scheduled_AC_CLResControlModeType->EVSETargetReactivePower_isUsed = 0u;
-    Scheduled_AC_CLResControlModeType->EVSETargetReactivePower_L2_isUsed = 0u;
-    Scheduled_AC_CLResControlModeType->EVSETargetReactivePower_L3_isUsed = 0u;
-    Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_isUsed = 0u;
-    Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_L2_isUsed = 0u;
-    Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_L3_isUsed = 0u;
-}
-
 void init_iso20_ac_Dynamic_AC_CLResControlModeType(struct iso20_ac_Dynamic_AC_CLResControlModeType* Dynamic_AC_CLResControlModeType) {
     Dynamic_AC_CLResControlModeType->DepartureTime_isUsed = 0u;
     Dynamic_AC_CLResControlModeType->MinimumSOC_isUsed = 0u;
@@ -306,6 +294,18 @@ void init_iso20_ac_Dynamic_AC_CLResControlModeType(struct iso20_ac_Dynamic_AC_CL
     Dynamic_AC_CLResControlModeType->EVSEPresentActivePower_isUsed = 0u;
     Dynamic_AC_CLResControlModeType->EVSEPresentActivePower_L2_isUsed = 0u;
     Dynamic_AC_CLResControlModeType->EVSEPresentActivePower_L3_isUsed = 0u;
+}
+
+void init_iso20_ac_Scheduled_AC_CLResControlModeType(struct iso20_ac_Scheduled_AC_CLResControlModeType* Scheduled_AC_CLResControlModeType) {
+    Scheduled_AC_CLResControlModeType->EVSETargetActivePower_isUsed = 0u;
+    Scheduled_AC_CLResControlModeType->EVSETargetActivePower_L2_isUsed = 0u;
+    Scheduled_AC_CLResControlModeType->EVSETargetActivePower_L3_isUsed = 0u;
+    Scheduled_AC_CLResControlModeType->EVSETargetReactivePower_isUsed = 0u;
+    Scheduled_AC_CLResControlModeType->EVSETargetReactivePower_L2_isUsed = 0u;
+    Scheduled_AC_CLResControlModeType->EVSETargetReactivePower_L3_isUsed = 0u;
+    Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_isUsed = 0u;
+    Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_L2_isUsed = 0u;
+    Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_L3_isUsed = 0u;
 }
 
 void init_iso20_ac_CLResControlModeType(struct iso20_ac_CLResControlModeType* CLResControlModeType) {
@@ -445,38 +445,6 @@ void init_iso20_ac_ManifestType(struct iso20_ac_ManifestType* ManifestType) {
 
 void init_iso20_ac_SignaturePropertiesType(struct iso20_ac_SignaturePropertiesType* SignaturePropertiesType) {
     SignaturePropertiesType->Id_isUsed = 0u;
-}
-
-// init for fragment
-void init_iso20_ac_exiFragment(struct iso20_ac_exiFragment* exiFrag) {
-    exiFrag->AC_ChargeParameterDiscoveryRes_isUsed = 0u;
-    exiFrag->SignedInfo_isUsed = 0u;
-}
-
-// init for xmldsig fragment
-void init_iso20_ac_xmldsigFragment(struct iso20_ac_xmldsigFragment* xmldsigFrag) {
-    xmldsigFrag->CanonicalizationMethod_isUsed = 0u;
-    xmldsigFrag->DSAKeyValue_isUsed = 0u;
-    xmldsigFrag->DigestMethod_isUsed = 0u;
-    xmldsigFrag->KeyInfo_isUsed = 0u;
-    xmldsigFrag->KeyValue_isUsed = 0u;
-    xmldsigFrag->Manifest_isUsed = 0u;
-    xmldsigFrag->Object_isUsed = 0u;
-    xmldsigFrag->PGPData_isUsed = 0u;
-    xmldsigFrag->RSAKeyValue_isUsed = 0u;
-    xmldsigFrag->Reference_isUsed = 0u;
-    xmldsigFrag->RetrievalMethod_isUsed = 0u;
-    xmldsigFrag->SPKIData_isUsed = 0u;
-    xmldsigFrag->Signature_isUsed = 0u;
-    xmldsigFrag->SignatureMethod_isUsed = 0u;
-    xmldsigFrag->SignatureProperties_isUsed = 0u;
-    xmldsigFrag->SignatureProperty_isUsed = 0u;
-    xmldsigFrag->SignatureValue_isUsed = 0u;
-    xmldsigFrag->SignedInfo_isUsed = 0u;
-    xmldsigFrag->Transform_isUsed = 0u;
-    xmldsigFrag->Transforms_isUsed = 0u;
-    xmldsigFrag->X509Data_isUsed = 0u;
-    xmldsigFrag->X509IssuerSerial_isUsed = 0u;
 }
 
 

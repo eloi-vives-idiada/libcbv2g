@@ -1484,7 +1484,9 @@ struct iso20_dc_exiDocument {
         struct iso20_dc_DC_CPDResEnergyTransferModeType DC_CPDResEnergyTransferMode;
         struct iso20_dc_BPT_DC_CPDReqEnergyTransferModeType BPT_DC_CPDReqEnergyTransferMode;
         struct iso20_dc_BPT_DC_CPDResEnergyTransferModeType BPT_DC_CPDResEnergyTransferMode;
+        struct iso20_dc_CLReqControlModeType CLReqControlMode;
         struct iso20_dc_Scheduled_DC_CLReqControlModeType Scheduled_DC_CLReqControlMode;
+        struct iso20_dc_CLResControlModeType CLResControlMode;
         struct iso20_dc_Scheduled_DC_CLResControlModeType Scheduled_DC_CLResControlMode;
         struct iso20_dc_BPT_Scheduled_DC_CLReqControlModeType BPT_Scheduled_DC_CLReqControlMode;
         struct iso20_dc_BPT_Scheduled_DC_CLResControlModeType BPT_Scheduled_DC_CLResControlMode;
@@ -1492,8 +1494,6 @@ struct iso20_dc_exiDocument {
         struct iso20_dc_Dynamic_DC_CLResControlModeType Dynamic_DC_CLResControlMode;
         struct iso20_dc_BPT_Dynamic_DC_CLReqControlModeType BPT_Dynamic_DC_CLReqControlMode;
         struct iso20_dc_BPT_Dynamic_DC_CLResControlModeType BPT_Dynamic_DC_CLResControlMode;
-        struct iso20_dc_CLReqControlModeType CLReqControlMode;
-        struct iso20_dc_CLResControlModeType CLResControlMode;
         struct iso20_dc_SignatureType Signature;
         struct iso20_dc_SignatureValueType SignatureValue;
         struct iso20_dc_SignedInfoType SignedInfo;
@@ -1530,7 +1530,9 @@ struct iso20_dc_exiDocument {
     unsigned int DC_CPDResEnergyTransferMode_isUsed:1;
     unsigned int BPT_DC_CPDReqEnergyTransferMode_isUsed:1;
     unsigned int BPT_DC_CPDResEnergyTransferMode_isUsed:1;
+    unsigned int CLReqControlMode_isUsed:1;
     unsigned int Scheduled_DC_CLReqControlMode_isUsed:1;
+    unsigned int CLResControlMode_isUsed:1;
     unsigned int Scheduled_DC_CLResControlMode_isUsed:1;
     unsigned int BPT_Scheduled_DC_CLReqControlMode_isUsed:1;
     unsigned int BPT_Scheduled_DC_CLResControlMode_isUsed:1;
@@ -1538,8 +1540,6 @@ struct iso20_dc_exiDocument {
     unsigned int Dynamic_DC_CLResControlMode_isUsed:1;
     unsigned int BPT_Dynamic_DC_CLReqControlMode_isUsed:1;
     unsigned int BPT_Dynamic_DC_CLResControlMode_isUsed:1;
-    unsigned int CLReqControlMode_isUsed:1;
-    unsigned int CLResControlMode_isUsed:1;
     unsigned int Signature_isUsed:1;
     unsigned int SignatureValue_isUsed:1;
     unsigned int SignedInfo_isUsed:1;
@@ -1561,66 +1561,6 @@ struct iso20_dc_exiDocument {
     unsigned int SignatureProperty_isUsed:1;
     unsigned int DSAKeyValue_isUsed:1;
     unsigned int RSAKeyValue_isUsed:1;
-};
-
-// elements of EXI fragment
-struct iso20_dc_exiFragment {
-    union {
-        struct iso20_dc_DC_ChargeParameterDiscoveryResType DC_ChargeParameterDiscoveryRes;
-        struct iso20_dc_SignedInfoType SignedInfo;
-    };
-    unsigned int DC_ChargeParameterDiscoveryRes_isUsed:1;
-    unsigned int SignedInfo_isUsed:1;
-};
-
-// elements of xmldsig fragment
-struct iso20_dc_xmldsigFragment {
-    union {
-        struct iso20_dc_CanonicalizationMethodType CanonicalizationMethod;
-        struct iso20_dc_DSAKeyValueType DSAKeyValue;
-        struct iso20_dc_DigestMethodType DigestMethod;
-        struct iso20_dc_KeyInfoType KeyInfo;
-        struct iso20_dc_KeyValueType KeyValue;
-        struct iso20_dc_ManifestType Manifest;
-        struct iso20_dc_ObjectType Object;
-        struct iso20_dc_PGPDataType PGPData;
-        struct iso20_dc_RSAKeyValueType RSAKeyValue;
-        struct iso20_dc_ReferenceType Reference;
-        struct iso20_dc_RetrievalMethodType RetrievalMethod;
-        struct iso20_dc_SPKIDataType SPKIData;
-        struct iso20_dc_SignatureType Signature;
-        struct iso20_dc_SignatureMethodType SignatureMethod;
-        struct iso20_dc_SignaturePropertiesType SignatureProperties;
-        struct iso20_dc_SignaturePropertyType SignatureProperty;
-        struct iso20_dc_SignatureValueType SignatureValue;
-        struct iso20_dc_SignedInfoType SignedInfo;
-        struct iso20_dc_TransformType Transform;
-        struct iso20_dc_TransformsType Transforms;
-        struct iso20_dc_X509DataType X509Data;
-        struct iso20_dc_X509IssuerSerialType X509IssuerSerial;
-    };
-    unsigned int CanonicalizationMethod_isUsed:1;
-    unsigned int DSAKeyValue_isUsed:1;
-    unsigned int DigestMethod_isUsed:1;
-    unsigned int KeyInfo_isUsed:1;
-    unsigned int KeyValue_isUsed:1;
-    unsigned int Manifest_isUsed:1;
-    unsigned int Object_isUsed:1;
-    unsigned int PGPData_isUsed:1;
-    unsigned int RSAKeyValue_isUsed:1;
-    unsigned int Reference_isUsed:1;
-    unsigned int RetrievalMethod_isUsed:1;
-    unsigned int SPKIData_isUsed:1;
-    unsigned int Signature_isUsed:1;
-    unsigned int SignatureMethod_isUsed:1;
-    unsigned int SignatureProperties_isUsed:1;
-    unsigned int SignatureProperty_isUsed:1;
-    unsigned int SignatureValue_isUsed:1;
-    unsigned int SignedInfo_isUsed:1;
-    unsigned int Transform_isUsed:1;
-    unsigned int Transforms_isUsed:1;
-    unsigned int X509Data_isUsed:1;
-    unsigned int X509IssuerSerial_isUsed:1;
 };
 
 // init for structs
@@ -1639,7 +1579,9 @@ void init_iso20_dc_DC_CPDReqEnergyTransferModeType(struct iso20_dc_DC_CPDReqEner
 void init_iso20_dc_DC_CPDResEnergyTransferModeType(struct iso20_dc_DC_CPDResEnergyTransferModeType* DC_CPDResEnergyTransferMode);
 void init_iso20_dc_BPT_DC_CPDReqEnergyTransferModeType(struct iso20_dc_BPT_DC_CPDReqEnergyTransferModeType* BPT_DC_CPDReqEnergyTransferMode);
 void init_iso20_dc_BPT_DC_CPDResEnergyTransferModeType(struct iso20_dc_BPT_DC_CPDResEnergyTransferModeType* BPT_DC_CPDResEnergyTransferMode);
+void init_iso20_dc_CLReqControlModeType(struct iso20_dc_CLReqControlModeType* CLReqControlMode);
 void init_iso20_dc_Scheduled_DC_CLReqControlModeType(struct iso20_dc_Scheduled_DC_CLReqControlModeType* Scheduled_DC_CLReqControlMode);
+void init_iso20_dc_CLResControlModeType(struct iso20_dc_CLResControlModeType* CLResControlMode);
 void init_iso20_dc_Scheduled_DC_CLResControlModeType(struct iso20_dc_Scheduled_DC_CLResControlModeType* Scheduled_DC_CLResControlMode);
 void init_iso20_dc_BPT_Scheduled_DC_CLReqControlModeType(struct iso20_dc_BPT_Scheduled_DC_CLReqControlModeType* BPT_Scheduled_DC_CLReqControlMode);
 void init_iso20_dc_BPT_Scheduled_DC_CLResControlModeType(struct iso20_dc_BPT_Scheduled_DC_CLResControlModeType* BPT_Scheduled_DC_CLResControlMode);
@@ -1647,8 +1589,6 @@ void init_iso20_dc_Dynamic_DC_CLReqControlModeType(struct iso20_dc_Dynamic_DC_CL
 void init_iso20_dc_Dynamic_DC_CLResControlModeType(struct iso20_dc_Dynamic_DC_CLResControlModeType* Dynamic_DC_CLResControlMode);
 void init_iso20_dc_BPT_Dynamic_DC_CLReqControlModeType(struct iso20_dc_BPT_Dynamic_DC_CLReqControlModeType* BPT_Dynamic_DC_CLReqControlMode);
 void init_iso20_dc_BPT_Dynamic_DC_CLResControlModeType(struct iso20_dc_BPT_Dynamic_DC_CLResControlModeType* BPT_Dynamic_DC_CLResControlMode);
-void init_iso20_dc_CLReqControlModeType(struct iso20_dc_CLReqControlModeType* CLReqControlMode);
-void init_iso20_dc_CLResControlModeType(struct iso20_dc_CLResControlModeType* CLResControlMode);
 void init_iso20_dc_SignatureType(struct iso20_dc_SignatureType* Signature);
 void init_iso20_dc_SignatureValueType(struct iso20_dc_SignatureValueType* SignatureValue);
 void init_iso20_dc_SignedInfoType(struct iso20_dc_SignedInfoType* SignedInfo);
@@ -1679,8 +1619,6 @@ void init_iso20_dc_DisplayParametersType(struct iso20_dc_DisplayParametersType* 
 void init_iso20_dc_EVSEStatusType(struct iso20_dc_EVSEStatusType* EVSEStatusType);
 void init_iso20_dc_MeterInfoType(struct iso20_dc_MeterInfoType* MeterInfoType);
 void init_iso20_dc_ReceiptType(struct iso20_dc_ReceiptType* ReceiptType);
-void init_iso20_dc_exiFragment(struct iso20_dc_exiFragment* exiFrag);
-void init_iso20_dc_xmldsigFragment(struct iso20_dc_xmldsigFragment* xmldsigFrag);
 
 
 #ifdef __cplusplus

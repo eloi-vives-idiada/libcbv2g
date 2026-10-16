@@ -38,7 +38,9 @@ void init_iso20_dc_exiDocument(struct iso20_dc_exiDocument* exiDoc) {
     exiDoc->DC_CPDResEnergyTransferMode_isUsed = 0u;
     exiDoc->BPT_DC_CPDReqEnergyTransferMode_isUsed = 0u;
     exiDoc->BPT_DC_CPDResEnergyTransferMode_isUsed = 0u;
+    exiDoc->CLReqControlMode_isUsed = 0u;
     exiDoc->Scheduled_DC_CLReqControlMode_isUsed = 0u;
+    exiDoc->CLResControlMode_isUsed = 0u;
     exiDoc->Scheduled_DC_CLResControlMode_isUsed = 0u;
     exiDoc->BPT_Scheduled_DC_CLReqControlMode_isUsed = 0u;
     exiDoc->BPT_Scheduled_DC_CLResControlMode_isUsed = 0u;
@@ -46,8 +48,6 @@ void init_iso20_dc_exiDocument(struct iso20_dc_exiDocument* exiDoc) {
     exiDoc->Dynamic_DC_CLResControlMode_isUsed = 0u;
     exiDoc->BPT_Dynamic_DC_CLReqControlMode_isUsed = 0u;
     exiDoc->BPT_Dynamic_DC_CLResControlMode_isUsed = 0u;
-    exiDoc->CLReqControlMode_isUsed = 0u;
-    exiDoc->CLResControlMode_isUsed = 0u;
     exiDoc->Signature_isUsed = 0u;
     exiDoc->SignatureValue_isUsed = 0u;
     exiDoc->SignedInfo_isUsed = 0u;
@@ -387,38 +387,6 @@ void init_iso20_dc_ManifestType(struct iso20_dc_ManifestType* ManifestType) {
 
 void init_iso20_dc_SignaturePropertiesType(struct iso20_dc_SignaturePropertiesType* SignaturePropertiesType) {
     SignaturePropertiesType->Id_isUsed = 0u;
-}
-
-// init for fragment
-void init_iso20_dc_exiFragment(struct iso20_dc_exiFragment* exiFrag) {
-    exiFrag->DC_ChargeParameterDiscoveryRes_isUsed = 0u;
-    exiFrag->SignedInfo_isUsed = 0u;
-}
-
-// init for xmldsig fragment
-void init_iso20_dc_xmldsigFragment(struct iso20_dc_xmldsigFragment* xmldsigFrag) {
-    xmldsigFrag->CanonicalizationMethod_isUsed = 0u;
-    xmldsigFrag->DSAKeyValue_isUsed = 0u;
-    xmldsigFrag->DigestMethod_isUsed = 0u;
-    xmldsigFrag->KeyInfo_isUsed = 0u;
-    xmldsigFrag->KeyValue_isUsed = 0u;
-    xmldsigFrag->Manifest_isUsed = 0u;
-    xmldsigFrag->Object_isUsed = 0u;
-    xmldsigFrag->PGPData_isUsed = 0u;
-    xmldsigFrag->RSAKeyValue_isUsed = 0u;
-    xmldsigFrag->Reference_isUsed = 0u;
-    xmldsigFrag->RetrievalMethod_isUsed = 0u;
-    xmldsigFrag->SPKIData_isUsed = 0u;
-    xmldsigFrag->Signature_isUsed = 0u;
-    xmldsigFrag->SignatureMethod_isUsed = 0u;
-    xmldsigFrag->SignatureProperties_isUsed = 0u;
-    xmldsigFrag->SignatureProperty_isUsed = 0u;
-    xmldsigFrag->SignatureValue_isUsed = 0u;
-    xmldsigFrag->SignedInfo_isUsed = 0u;
-    xmldsigFrag->Transform_isUsed = 0u;
-    xmldsigFrag->Transforms_isUsed = 0u;
-    xmldsigFrag->X509Data_isUsed = 0u;
-    xmldsigFrag->X509IssuerSerial_isUsed = 0u;
 }
 
 
